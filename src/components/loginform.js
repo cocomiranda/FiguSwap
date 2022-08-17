@@ -12,7 +12,7 @@ const LoginForm = () => {
 
     return (
         <div className="cover">
-            <h1>Login</h1>
+            <h1>LateNola</h1>
             <input type="text" placeholder="username" />
             <input type="password" placeholder="password" />
 
@@ -24,6 +24,8 @@ const LoginForm = () => {
                 <div className="facebook"></div>
                 <div className="google"></div>
             </div>
+
+            <div className="signup">Not registered? Signup</div>
 
             <div className={popupStyle}>
                 <h3>Login Failed</h3>
