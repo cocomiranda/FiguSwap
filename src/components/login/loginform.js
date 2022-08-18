@@ -7,11 +7,11 @@ const LoginForm = () => {
 
     return (
         <div className="cover">
-            <h1>FIGUSWAP</h1>
+            <h1 className="h1">FIGUSWAP</h1>
             <input type="text" placeholder="username" />
             <input type="password" placeholder="password" />
 
-            <div className="login-btn" >Login</div>
+            <div className="login-btn">Login</div>
 
             <p className="text">Or login using</p>
 
