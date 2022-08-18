@@ -72,7 +72,7 @@ input {
 }
 
 input:focus {
-    outline-color: rgb(32, 177, 255);
+    outline-color: red;
 }
 
 .login-btn {
