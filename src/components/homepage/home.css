@@ -1,0 +1,15 @@
+.tableContainer {
+    border-radius: 20px;
+    height: 400px;
+    width: 80%;
+    padding: 0 10px 10px 10px;
+    overflow: auto;
+}
+
+.profile {
+    color: #8A1538;
+}
+
+.team {
+    color: #8A1538;
+}
