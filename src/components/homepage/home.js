@@ -34,6 +34,16 @@ const Home = () => {
         aux2.style.display = 'none';
         const aux3 = document.getElementById('tableRepetidas');
         aux3.style.display = 'none';
+
+        const boton1 = document.getElementById("boton_todas");
+        boton1.style.color = 'white';
+        boton1.style.backgroundColor = '#8A1538';
+        const boton2 = document.getElementById("boton_faltantes");
+        boton2.style.color = '#8A1538';
+        boton2.style.backgroundColor = 'white';
+        const boton3 = document.getElementById("boton_repetidas");
+        boton3.style.color = '#8A1538';
+        boton3.style.backgroundColor = 'white';
     }
     function showFaltantes() {
         const aux1 = document.getElementById('tableAll');
@@ -42,6 +52,16 @@ const Home = () => {
         aux2.style.display = 'block';
         const aux3 = document.getElementById('tableRepetidas');
         aux3.style.display = 'none';
+        
+        const boton1 = document.getElementById("boton_todas");
+        boton1.style.color = '#8A1538';
+        boton1.style.backgroundColor = 'white';
+        const boton2 = document.getElementById("boton_faltantes");
+        boton2.style.color = 'white';
+        boton2.style.backgroundColor = '#8A1538';
+        const boton3 = document.getElementById("boton_repetidas");
+        boton3.style.color = '#8A1538';
+        boton3.style.backgroundColor = 'white';
     }
     function showRepetidas() {
         const aux1 = document.getElementById('tableAll');
@@ -50,6 +70,16 @@ const Home = () => {
         aux2.style.display = 'none';
         const aux3 = document.getElementById('tableRepetidas');
         aux3.style.display = 'block';
+
+        const boton1 = document.getElementById("boton_todas");
+        boton1.style.color = '#8A1538';
+        boton1.style.backgroundColor = 'white';
+        const boton2 = document.getElementById("boton_faltantes");
+        boton2.style.color = '#8A1538';
+        boton2.style.backgroundColor = 'white';
+        const boton3 = document.getElementById("boton_repetidas");
+        boton3.style.color = 'white';
+        boton3.style.backgroundColor = '#8A1538';
     }
 
  
@@ -77,8 +107,8 @@ const Home = () => {
 
     function copia1() {
         const tabla1 = document.getElementById('tableAll');
-        const tabla2 = document.getElementById('tableRepetidas');
-        const tabla3 = document.getElementById('tableFaltantes');
+        const tabla2 = document.getElementById('tableFaltantes');
+        const tabla3 = document.getElementById('tableRepetidas');
         tabla2.innerHTML = tabla1.innerHTML;
         tabla3.innerHTML = tabla1.innerHTML;
     }
@@ -92,9 +122,9 @@ const Home = () => {
             <div className="profile" onClick={() => routeChange()}> my profile</div>
     
             <div class="toggle-status">
-                <a className="status_buttons" onClick={ showAll }>Todas</a>&nbsp;
-                <a className="status_buttons" onClick={ showFaltantes }>Faltantes</a>&nbsp;
-                <a className="status_buttons" onClick={ showRepetidas }>Repetidas</a>&nbsp;
+                <a className="status_buttons" id="boton_todas" onClick={ showAll }>Todas</a>&nbsp;
+                <a className="status_buttons" id="boton_faltantes" onClick={ showFaltantes }>Faltantes</a>&nbsp;
+                <a className="status_buttons" id="boton_repetidas" onClick={ showRepetidas }>Repetidas</a>&nbsp;
             </div>
 
             <div id="tableAll">
@@ -197,11 +227,11 @@ const Home = () => {
             </div>
 
             <table id="tableFaltantes">
-                    <a>faltantes</a>
+                    <a></a>
             </table>
 
             <table id="tableRepetidas">
-                    <a>repetidas</a>
+                    <a></a>
             </table>
         </div>
     )
