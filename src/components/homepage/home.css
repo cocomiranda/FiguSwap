@@ -1,15 +1,82 @@
-.tableContainer {
+.profile {
+    color: #8A1538;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    margin-left: -65%;
+}
+
+#tableAll {
     border-radius: 20px;
     height: 400px;
     width: 80%;
     padding: 0 10px 10px 10px;
     overflow: auto;
+    margin-top: -10px;
 }
 
-.profile {
-    color: #8A1538;
+#tableFaltantes {
+    display: none;
+    border-radius: 20px;
+    height: 400px;
+    width: 80%;
+    padding: 0 10px 10px 10px;
+    overflow: auto;
+    margin-top: -10px;
 }
+#tableRepetidas {
+    display: none;
+    border-radius: 20px;
+    height: 400px;
+    width: 80%;
+    padding: 0 10px 10px 10px;
+    overflow: auto;
+    margin-top: -10px;
+}
+
+
+#tableRepetidas .card {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+
+}
+
+.card {
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tableRepetidas #faltante {
+    display: none;
+}
+#tableRepetidas #tengo {
+    display: none;
+}
+
+#tableFaltantes #tengo {
+    display: none;
+}
+#tableFaltantes #repetida {
+    display: none;
+}
+
 
 .team {
     color: #8A1538;
+    cursor: pointer;
+    margin-top: 20px;
+    padding-left: 12px;
 }
+
+.status_buttons {
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px;
+    border-color: #8A1538;
+    border-style: solid;
+    cursor: pointer;
+}
+
