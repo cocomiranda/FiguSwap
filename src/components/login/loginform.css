@@ -12,6 +12,7 @@
 
 .h1 {
     color: #8A1538;
+    margin-top: 50px;
 }
 .page {
     height: 100vh;
@@ -43,12 +44,12 @@
 
 .username {
     position: relative;
-    bottom: -10%;
+    top: 5%;
     font-size: 15px;
 }
 .password {
     position: relative;
-    bottom: -5%;
+    bottom: -2.5%;
     font-size: 15px;
 }
 
