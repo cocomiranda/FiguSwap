@@ -73,6 +73,7 @@ const LoginForm = () => {
           } catch (e) {
             console.error("Error adding document: ", e);
         }
+        routeChange()
     }
     // add_data(db)
 
