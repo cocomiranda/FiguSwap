@@ -1,23 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import "./account.css"
 
 
 const Contacts = () => {
 
-    
-    // const navigate = useNavigate(); 
+    const params = useParams();
+    const navigate = useNavigate(); 
 
-    // const routeHomepage = () =>{ 
-    //     navigate("/homepage");
-    // }
-    // const routeLogin = () =>{ 
-    //     navigate("/");
-    // }
+    const routeChange = () =>{ 
+        navigate("/homepage");
+    }
+
     return (
         <div className="cover">
-            
-            <h1>contact lists</h1>
+            <div className="profile" onClick={() => routeChange()}>Back</div>
+            <div>{params.figu}</div>
             
 
         </div>

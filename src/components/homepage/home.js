@@ -28,6 +28,7 @@ const Home = () => {
     }
 
     function showAll() {
+        copia1();
         const aux1 = document.getElementById('tableAll');
         aux1.style.display = 'block';
         const aux2 = document.getElementById('tableFaltantes');
@@ -46,6 +47,7 @@ const Home = () => {
         boton3.style.backgroundColor = 'white';
     }
     function showFaltantes() {
+        copia1();
         const aux1 = document.getElementById('tableAll');
         aux1.style.display = 'none';
         const aux2 = document.getElementById('tableFaltantes');
@@ -64,6 +66,7 @@ const Home = () => {
         boton3.style.backgroundColor = 'white';
     }
     function showRepetidas() {
+        copia1();
         const aux1 = document.getElementById('tableAll');
         aux1.style.display = 'none';
         const aux2 = document.getElementById('tableFaltantes');
@@ -111,24 +114,45 @@ const Home = () => {
         const tabla3 = document.getElementById('tableRepetidas');
         tabla2.innerHTML = tabla1.innerHTML;
         tabla3.innerHTML = tabla1.innerHTML;
+        
+        // let filas;
+        // tabla_aux = document.getElementById("tableFaltantes");
+        let filas = tabla2.rows;
+        let i=0
+        for (i = 0; i < filas.length; i++) {
+            let trs = filas[i]
+            let j=0
+            let tds = trs.children
+            for (j = 0; j < tds.length; j++) {
+                let oldCard = tds[j]
+                oldCard.className = 'newCard';
+                // console.log(oldCard.innerHTML)
+                // oldCard.addEventListener('click', function(){ contactos();});
+                oldCard.onclick = function() { 
+                    let figurita = oldCard.innerHTML;
+                    navigate(`/${figurita}`);
+                 };
+            }
+        }
     }
-    
+
 
 
 
     return (
-        <div className="cover">
+        <div className="cover" >
             
             <div className="profile" onClick={() => routeChange()}> my profile</div>
     
             <div class="toggle-status">
-                <a className="status_buttons" id="boton_todas" onClick={ showAll }>Todas</a>&nbsp;
-                <a className="status_buttons" id="boton_faltantes" onClick={ showFaltantes }>Faltantes</a>&nbsp;
-                <a className="status_buttons" id="boton_repetidas" onClick={ showRepetidas }>Repetidas</a>&nbsp;
+                <a className="status_buttons" id="boton_todas" style={{ color: 'white', backgroundColor: '#8A1538'}} onClick={ showAll }>Todas</a>&nbsp;
+                <a className="status_buttons" id="boton_faltantes" style={{ color: '#8A1538'}} onClick={ showFaltantes }>Faltantes</a>&nbsp;
+                <a className="status_buttons" id="boton_repetidas" style={{ color: '#8A1538'}} onClick={ showRepetidas }>Repetidas</a>&nbsp;
             </div>
 
-            <div id="tableAll">
-                <a className="team">QATAR</a><br/><br/>
+            
+            <div id="tableAll" style={{ display: 'block' }}>
+                <p className="team">QATAR</p><br/>
                 <table>
                     <tr>
                     {/* style={{ backgroundColor: isActive ? 'salmon' : ''}} */}
@@ -137,31 +161,31 @@ const Home = () => {
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 3</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 4</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 5</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 6</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 7</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 8</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 9</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 10</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 11</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 12</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 13</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 14</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 15</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 16</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 17</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 18</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 19</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 20</td>
-                    </tr><br/><br/><br/>
+                    </tr><br/><br/>
                 </table> 
 
-                <a className="team">ECUADOR</a><br/><br/> 
+                <p className="team">ECUADOR</p><br/>
                 <table>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 1</td>
@@ -169,31 +193,31 @@ const Home = () => {
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 3</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 4</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 5</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 6</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 7</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 8</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 9</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 10</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 11</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 12</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 13</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 14</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 15</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 16</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 17</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 18</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 19</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >ECU 20</td>
-                    </tr><br/><br/><br/>
+                    </tr><br/><br/>
                 </table>    
                 
-                <a className="team">SENEGAL</a><br/><br/> 
+                <p className="team">SENEGAL</p><br/> 
                 <table>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 1</td>
@@ -201,21 +225,21 @@ const Home = () => {
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 3</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 4</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 5</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 6</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 7</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 8</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 9</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 10</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 11</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 12</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 13</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 14</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 15</td>
-                    </tr><br/>
+                    </tr>
                     <tr>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 16</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >SEN 17</td>
@@ -226,12 +250,12 @@ const Home = () => {
                 </table>  
             </div>
 
-            <table id="tableFaltantes">
-                    <a></a>
+            <table id="tableFaltantes" style={{ display: 'none' }}>
+                    <tr></tr>
             </table>
 
-            <table id="tableRepetidas">
-                    <a></a>
+            <table id="tableRepetidas" style={{ display: 'none' }}>
+                    <tr></tr>
             </table>
         </div>
     )

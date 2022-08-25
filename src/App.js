@@ -1,6 +1,7 @@
 import LoginForm from "./components/login/loginform";
 import Home from "./components/homepage/home"
 import Profile from "./components/profile/account"
+import Contacts from "./components/list/contacts"
 import { useRoutes, BrowserRouter as Router } from "react-router-dom";
 import React from "react";
 
@@ -25,6 +26,7 @@ const App = () => {
     { path: "/", element: <LoginForm /> },
     { path: "/homepage", element: <Home /> },
     { path: "/profile", element: <Profile /> },
+    { path: "/:figu", element: <Contacts /> },
     // ...
   ]);
   return routes;
