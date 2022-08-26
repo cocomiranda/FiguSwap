@@ -1,8 +1,15 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import "./home.css"
 
 const Home = () => {
+
+    const params = useParams();
+    console.log(params)
+    const username = params.name;
+    // console.log(username)
+    // const { state } = useLocation();
+    // const { id, color } = state;
 
     const qatar1 = ['QAT 1','QAT 2','QAT 3','QAT 4','QAT 5'];
     const qatar2 = ['QAT 6','QAT 7','QAT 8','QAT 9','QAT 10'];
@@ -24,7 +31,7 @@ const Home = () => {
     
     const navigate = useNavigate(); 
     const routeChange = () =>{ 
-        navigate("/profile");
+        navigate(`/${params.name}/${params.name}`);
     }
 
     function showAll() {

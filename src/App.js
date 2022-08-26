@@ -24,8 +24,8 @@ import React from "react";
 const App = () => {
   const routes = useRoutes([
     { path: "/", element: <LoginForm /> },
-    { path: "/homepage", element: <Home /> },
-    { path: "/profile", element: <Profile /> },
+    { path: "/:name", element: <Home /> },
+    { path: "/:name/:location", element: <Profile /> },
     { path: "/:figu", element: <Contacts /> },
     // ...
   ]);

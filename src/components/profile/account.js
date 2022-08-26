@@ -1,9 +1,8 @@
- import React, { Component } from "react";
-import { useNavigate } from "react-router-dom";
+ import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./account.css"
-// import Dropdown from "./localidad.js"
-// import addOpt from "./localidad"
-import {addOpt, localiades} from "./localidad";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs, addDoc, updateDoc, setDoc, doc } from 'firebase/firestore';
 
 
 // const script = document.createElement('script');
@@ -23,11 +22,15 @@ const Profile = () => {
     const routeLogin = () =>{ 
         navigate("/");
     }
-    
+    const params = useParams();
+    console.log(params)
+
+
+    const [location, setLocation] = useState('');
+
     var data = require("./localidades.json");
     // console.log(data)
     // console.log(typeof(data))
-
     let optionItems = data.map((ubicacion) =>
         <option key={ubicacion.id}>{ubicacion.provincia} - {ubicacion.localidad}</option>
     );
@@ -46,6 +49,73 @@ const Profile = () => {
     // console.log(document.getElementById('provincia').children[1].value);
     // console.log(aux2);
 
+    const handleLocation = event => {
+        setLocation(event.target.value);
+        console.log(location);
+        add_data(db);
+    };
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDDZcrXRYk3_7hf7rsO6jz9YA2tno-DRSg",
+        authDomain: "figuswap.firebaseapp.com",
+        databaseURL: "https://figuswap-default-rtdb.firebaseio.com",
+        projectId: "figuswap",
+        storageBucket: "figuswap.appspot.com",
+        messagingSenderId: "143399267512",
+        appId: "1:143399267512:web:20b52674b003f83105184d",
+        measurementId: "G-57D434TN64"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function add_data(db) {
+        const querySnapshot = await getDocs(collection(db, "usuarios"));
+        querySnapshot.forEach((doc) => {
+            console.log(doc)
+            console.log(doc._document.data.value.mapValue.fields.username.stringValue)
+            if (params.name == doc._document.data.value.mapValue.fields.username.stringValue) {
+                console.log('usuario encontrado');
+                console.log(doc);
+                // const doc_id = doc.id;
+                
+                // myApiCall()
+                // async function myApiCall() {
+                //     console.log(doc.id);
+                //     // const ubi = doc._document.data.value.mapValue.fields.location.stringValue
+                //     await updateDoc(doc, {
+                //         SPACMJH9G4o5OYtnSCoG: 'true'
+                //     });
+                // }
+            }
+            else {
+                console.log('no encontrado')
+                // add_data(db,username,password)
+            }
+           console.log('\n')
+        });
+        
+    }
+
+
+    // async function read_data(db) {
+    //     const querySnapshot = await getDocs(collection(db, "usuarios"));
+    //     querySnapshot.forEach((doc) => {
+    //         console.log(doc.id)
+    //         console.log(doc._document.data.value.mapValue.fields.username.stringValue)
+    //         if (username == doc._document.data.value.mapValue.fields.username.stringValue) {
+    //             console.log('usuario encontrado');
+    //             document.getElementById("existente").style.display = "inline";
+    //         }
+    //         else {
+    //             console.log('no encontrado')
+    //             add_data(db,username,password)
+    //         }
+    //         // console.log(doc._document.data.value.mapValue.fields.username.stringValue)
+    //         // console.log(doc._document.data.value.mapValue.fields.password.stringValue)
+    //         // console.log(doc._document.data.value.mapValue.fields.location)
+    //         console.log('\n')
+    //     });
+    // }
 
     return (
         <div className="cover">
@@ -93,11 +163,11 @@ const Profile = () => {
                 </select>
             </div> */}
 
-            <div className="form-group"><label for="localidad">Localidad <small>*</small></label><br></br>
+            <div className="form-group"><label for="localidad" >Localidad <small>*</small></label><br></br>
                 {/* <select name="dir_localidad" className="form-control col" id="localidad" required>
                     <option value="" selected disabled hidden>-</option>
                 </select> */}
-                <select className="form-control col" id="localidad">
+                <select className="form-control col" id="localidad" onChange={ handleLocation } value={location}>
                     {optionItems}
                 </select>
             </div>

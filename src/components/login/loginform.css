@@ -44,12 +44,12 @@
 
 .username {
     position: relative;
-    top: 5%;
+    top: 10px;
     font-size: 15px;
 }
 .password {
     position: relative;
-    bottom: -2.5%;
+    bottom: 5px;
     font-size: 15px;
 }
 
@@ -96,12 +96,12 @@ input:focus {
     width: 40%;
     height: 3em;
     background-color: #8A1538;
-    margin-bottom: 25%;
+    margin-bottom: 80px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
+    /* transition: 0.5s; */
     border-radius: 0.25em;
     cursor: pointer;
 }
@@ -120,3 +120,10 @@ input:focus {
     transform: scale(0);
 }
 
+#existente {
+    color: red;
+    font-size: 12px;
+    margin-top: -40px;
+    margin-bottom: -32px;
+    display: none;
+}
