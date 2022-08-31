@@ -7,7 +7,7 @@ const Home = () => {
     const params = useParams();
     console.log(params)
     const username = params.name;
-    // console.log(username)
+    console.log(username)
     // const { state } = useLocation();
     // const { id, color } = state;
 
@@ -31,11 +31,11 @@ const Home = () => {
     
     const navigate = useNavigate(); 
     const routeChange = () =>{ 
-        navigate(`/${params.name}/${params.name}`);
+        navigate(`/${params.name}/${params.location}`);
     }
 
     function showAll() {
-        copia1();
+        // copia1();
         const aux1 = document.getElementById('tableAll');
         aux1.style.display = 'block';
         const aux2 = document.getElementById('tableFaltantes');
@@ -54,7 +54,7 @@ const Home = () => {
         boton3.style.backgroundColor = 'white';
     }
     function showFaltantes() {
-        copia1();
+        // copia1();
         const aux1 = document.getElementById('tableAll');
         aux1.style.display = 'none';
         const aux2 = document.getElementById('tableFaltantes');
@@ -73,7 +73,7 @@ const Home = () => {
         boton3.style.backgroundColor = 'white';
     }
     function showRepetidas() {
-        copia1();
+        // copia1();
         const aux1 = document.getElementById('tableAll');
         aux1.style.display = 'none';
         const aux2 = document.getElementById('tableFaltantes');
@@ -92,6 +92,14 @@ const Home = () => {
         boton3.style.backgroundColor = '#8A1538';
     }
 
+
+    // var data = require("./book2.json");
+    // console.log(data)
+    // console.log(data)
+    // let figuritas = data.map((data) =>
+    //     <option key={data.id}>{data.figurita}</option>
+    // );
+    // console.log(figuritas)
  
     
     const [state, setState] = useState(0);
@@ -158,11 +166,11 @@ const Home = () => {
             </div>
 
             
-            <div id="tableAll" style={{ display: 'block' }}>
+            <div id="tableAll" >
+                   
                 <p className="team">QATAR</p><br/>
                 <table>
                     <tr>
-                    {/* style={{ backgroundColor: isActive ? 'salmon' : ''}} */}
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 1</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 2</td>
                         <td className="card" id="faltante" style={{backgroundColor: colortoshow}} onClick={betterToggleState} >QAT 3</td>
